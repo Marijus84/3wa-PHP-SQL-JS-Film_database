@@ -1,0 +1,134 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
+.container {
+  min-width: 400px;
+  background-image: url("backmain.jpg");
+  margin: 0 auto;
+  background-repeat: round;
+  text-align: center;
+}
+
+.bot {
+  margin: 100px;
+}
+
+header {
+  height: 120px;
+}
+
+form {
+  text-align: center;
+}
+
+
+.inp {
+  text-align: center;
+  margin: 0 auto;
+}
+
+label {
+  color: white;
+}
+
+.card {
+  min-width: 300px;
+}
+
+.card-block.text-center.shadow {
+  background-image: url("back.jpg");
+  width: 100%;
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+
+}
+
+p {color: white}
+
+.container {
+
+  text-align: center;
+}
+
+.card-block
+
+.card {
+  border: solid 3px lightblue;
+}
+
+h3 {
+  color: white;
+}
+
+h3, h1 {
+  text-align: center;
+}
+tr {
+  text-align: center;
+}
+
+article {margin:30px;}
+
+a
+{
+    color: #7F3734;
+    text-decoration: none;
+    transition: color 0.25s;
+}
+a:hover
+{
+    color: #FFCC5C;
+}
+
+button.btn.btn-primary {
+  margin-bottom: 100px;
+}
+
+
+
+body
+{
+    /* structure */
+    /*margin: 0 auto;
+    padding: 1em;
+    min-height: 100%;
+    width: 80%;*/
+
+    /* presentation */
+    font-family: 'Open Sans', sans-serif;
+}
+
+html
+{
+    /* structure */
+    height: 100%;
+
+    /* presentation */
+    background-color: #F8FFF2;
+}
+
+h1
+{
+    color: #00968B;
+}
+
+
+.order-form-customer
+{
+    /* structure */
+    padding: 1em 0;
+
+    /* presentation */
+    text-align: right;
+}
+
+
+.standard-table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+.standard-table caption
+{
+    /* structure */
+    padding: 0.5em 0;
