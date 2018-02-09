@@ -8,8 +8,13 @@
   text-align: center;
 }
 
+
 .bot {
   margin: 100px;
+}
+
+h1.tc {
+  text-align: center;
 }
 
 header {
@@ -20,6 +25,9 @@ form {
   text-align: center;
 }
 
+iframe {
+margin: 0 auto;
+}
 
 .inp {
   text-align: center;
@@ -60,6 +68,10 @@ h3 {
   color: white;
 }
 
+h3 {
+  margin-top: 30px;
+}
+
 h3, h1 {
   text-align: center;
 }
@@ -80,11 +92,42 @@ a:hover
     color: #FFCC5C;
 }
 
+.commentTable{
+  margin: 0 auto;
+}
+
+button.btn.btn-danger, button.btn.btn-success, button.btn.btn-info {
+  margin: 20px;
+}
+
 button.btn.btn-primary {
+  margin-top: 30px;
   margin-bottom: 100px;
 }
 
+td {
+  padding: 30px;
+}
 
+th {
+  padding: 30px;
+  margin: 0;
+}
+
+.show {
+  display: none;
+}
+
+
+td.white {
+  color: #c0cce2;
+  padding: 15px, 30px;
+}
+
+td.whites {
+  color: white;
+  padding: 15px, 30px;
+}
 
 body
 {
@@ -107,9 +150,15 @@ html
     background-color: #F8FFF2;
 }
 
+
+img, iframe {
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.3);
+}
+
 h1
 {
-    color: #00968B;
+    color: #e6e8e3;
 }
 
 

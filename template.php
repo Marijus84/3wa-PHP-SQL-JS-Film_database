@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
     <label>Premiere date</label>
-    <input type="date" name="year"  class="form-control"  value = "<?= $film['year'];?>">
+    <input type="number" min="1900" max="2020" name="year"  class="form-control"  value = "<?= $film['year'];?>">
     </div>
     <div class="form-group">
     <label>Description</label>

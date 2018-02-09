@@ -19,6 +19,31 @@ function connectToDb() {
  }
 
 
+function getPage($page) {
+  $pdo = connectToDb();
+  $offset = $page * 3-3;
+  $query = $pdo->prepare("SELECT * FROM filmai LIMIT $offset,3");
+
+  $query->execute();
+  $movies = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $movies;
+}
+
+
+
+function getComments($id){
+  $pdo = connectToDb();
+  $query = $pdo->prepare("SELECT * FROM Comments WHERE film_id = '$id'");
+  $query->execute();
+  $film = $query->fetchAll(PDO::FETCH_ASSOC);
+  echo json_encode($film);
+  }
+
+
+
+
+
+
 function getAll(){
 
 $pdo = connectToDb();

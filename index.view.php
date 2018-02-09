@@ -17,28 +17,32 @@
         <div class="row">
 
             <?php foreach($movies as $movie): ?>
-
-              <div class="col-lg-4 col-md-4 col-sm-6 ">
+              <div class="col-lg-4 col-md-6 col-sm-12 ">
                 <article class="card">
                 <div class="card-block text-center shadow">
                   <header class="title-header">
                     <h3><?= $movie['title'] ?></h3>
                   </header>
                     <div class="img-card ">
-                        <a href="#"><img src="<?= $movie['image'] ?>" alt="" class=" img-responsive " style="height: 250px; margin: 10 auto" /></a>
+                        <a href="detailed_view.php?id=<?= $movie['id']?>"><img src="<?= $movie['image'] ?>" alt="" class=" img-responsive " style="height: 250px; margin: 10 auto" /></a>
                     </div>
                     <p class="tagline card-text text-xs-center"><?= $movie['year'] ?> </p>
                     <p class="tagline card-text text-xs-center">Trukmė:<?= $movie['duration'] ?> min </p>
                     <p class="tagline card-text text-xs-center">Kokybe:<?= $movie['quality'] ?></p>
-                    <a href="<?= $movie['trailer'] ?>"type = "button" class="btn btn-primary btn-block"><i class="fa fa-eye"></i> Preview </a>
+                    <a href="<?= $movie['trailer'] ?>"><iframe width="250px" src="<?= $movie['trailer'] ?>"></iframe></a>
                     <a href="edit.php?id=<?= $movie['id']?>"><button type="button" class="btn btn-success">Edit</button></a>
                     <a href="delete.php?id=<?= $movie['id']?>"><button type="button" onclick="return myF();" class="btn btn-danger">Delete</button></a>
                 </div>
             </article>
         </div>
         <?php endforeach ?>
-        <a href="new.php"><button type="button" class="bot btn btn-primary">Add New</button></a>
       </div>
+      <ul class="pagination justify-content-center">
+        <?php for ($i=1; $i <=$pageCount ; $i++): ?>
+          <li class="page-item"><a class="page-link" href="index.php?psl=<?php echo $i?>"><?php echo $i ?></a></li>
+        <?php endfor;?>
+      </ul>
+      <a href="new.php"><button type="button" class="bot btn btn-primary">Add New</button></a>
     </section>
 
     </div>
