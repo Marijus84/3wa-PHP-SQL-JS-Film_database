@@ -105,6 +105,21 @@ button.btn.btn-primary {
   margin-bottom: 100px;
 }
 
+.results {
+  text-align: left;
+  padding-left: 10px;
+  background-color: white;
+}
+
+.suggestions p{
+  z-index: 2;
+  color:  #212529;
+}
+
+.col-md-4 {
+  margin: 0 auto
+}
+
 td {
   padding: 30px;
 }
@@ -127,6 +142,10 @@ td.white {
 td.whites {
   color: white;
   padding: 15px, 30px;
+}
+
+.form-group {
+  padding: 10px;
 }
 
 body
@@ -180,4 +199,12 @@ h1
 .standard-table caption
 {
     /* structure */
-    padding: 0.5em 0;
+    padding: 0.5em 0;}
+
+a {
+  color: #007bff;
+}
+
+a:hover{
+  color: red;
+}

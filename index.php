@@ -7,17 +7,21 @@ include 'functions.php';
 
 
 
-$count = count(getAll());
+
  $perPage = 3;
- $pageCount = ceil($count/$perPage);
  $psl = 1;
  if (array_key_exists("psl",$_GET)){
   $psl = $_GET["psl"];
  }
+$filter = null;
+ if (array_key_exists("year",$_GET)){
+   $filter = $_GET['year'];
+   //dd($filter);
+ }
 
 
-
-$movies = getPage($psl);
+$movies = getPage($psl,$filter); //dd($movies);
+$pageCount = ceil($movies[1]/$perPage);
 // $movies = getAll();
 
 include 'index.view.php';

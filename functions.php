@@ -19,30 +19,29 @@ function connectToDb() {
  }
 
 
-function getPage($page) {
+function getPage($page, $filter) {
   $pdo = connectToDb();
   $offset = $page * 3-3;
-  $query = $pdo->prepare("SELECT * FROM filmai LIMIT $offset,3");
-
+  if($filter){
+    $query = $pdo->prepare("SELECT * FROM filmai WHERE year='$filter' LIMIT $offset,3");
+    $count = count(getAllbyYear($filter));
+  }
+  else {
+    $count = count(getAll());
+    $query = $pdo->prepare("SELECT * FROM filmai LIMIT $offset,3");
+  }
   $query->execute();
   $movies = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $movies;
+    return $test = [$movies,$count];
 }
 
-
-
-function getComments($id){
-  $pdo = connectToDb();
-  $query = $pdo->prepare("SELECT * FROM Comments WHERE film_id = '$id'");
-  $query->execute();
-  $film = $query->fetchAll(PDO::FETCH_ASSOC);
-  echo json_encode($film);
-  }
-
-
-
-
-
+function getAllbyYear($filter){
+$pdo = connectToDb();
+$query = $pdo->prepare("SELECT * FROM filmai WHERE year='$filter'");
+$query->execute();
+$movies = $query->fetchAll(PDO::FETCH_ASSOC);
+  return $movies;
+}
 
 function getAll(){
 
@@ -63,7 +62,17 @@ $film = $query->fetch(PDO::FETCH_ASSOC);
 }
 
 
+function addComment($coming, $id){
+$pdo = connectToDb();
+$sql = 'INSERT INTO Comments (film_id, name, comments)
+   VALUES ("'.$id.'", "'.$coming['name'].'",
+  "'.$coming['comment'].'")';
+$query = $pdo->prepare($sql);
+$query->execute();
+echo "Prideta";
+header('Location: detailed_view.php'.$id);
 
+}
 
 function addNew($coming){
 
@@ -117,9 +126,35 @@ header("Refresh:2;url=index.php");
 
 }
 
+function searchMovie($search){
 
+  $pdo = connectToDb();
+  $query = $pdo->prepare("SELECT title, id FROM filmai WHERE title LIKE '_%{$search}%'");
+  $query->execute();
+  $results = $query->fetchAll(PDO::FETCH_ASSOC);
+  echo json_encode($results);
 
+}
 
+function getComments($id){
+  $pdo = connectToDb();
+  $query = $pdo->prepare("SELECT * FROM Comments WHERE film_id = '$id'");
+  $query->execute();
+  $film = $query->fetchAll(PDO::FETCH_ASSOC);
+  echo json_encode($film);
+}
+
+function searchID($search){
+
+  $pdo = connectToDb();
+  $query = $pdo->prepare("SELECT id FROM filmai WHERE title LIKE '%{$search}%'");
+  $query->execute();
+  $results = $query->fetch(PDO::FETCH_ASSOC);
+  // header('Location: detailed_view.php');
+  
+  echo json_encode($results);
+
+}
 
 
 

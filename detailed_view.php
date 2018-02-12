@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
 
 include 'functions.php';
 $film = getOne($_GET['id']);
-$comments = getComments($_GET['id']);
- $count = count(getAll());
+//$comments = getComments($_GET['id']);
+$count = count(getAll());
 
 //dd($comments);
 ?>
@@ -38,10 +38,13 @@ $comments = getComments($_GET['id']);
       <p><strong>Quality:</strong>  <?= $film['quality'];?></p>
 
       <div class="row">
-        <iframe width="600px" height= "400px" src="<?= $film['trailer'] ?>"></iframe>
+        <iframe width="600px" height= "400px" src="<?= $film['trailer'] ?>?autoplay=1"></iframe>
       </div>
       <div class="comments">
-      <button type="button" onclick = "myF();" class="bot btn btn-info">View comments</button>
+      <button type="button" onclick = "myF();" class="bot btn btn-info">View/Hide comments</button>
+      </div>
+      <div class="tbl show">
+
       </div>
       <p>
 
@@ -50,14 +53,17 @@ $comments = getComments($_GET['id']);
         </div>
         <p>
 
-        <form action="new_comment.php'?>" class = "hidden2 show" method="POST">
+        <form action="addComment.php?id=<?= $film['id']?>" class = "hidden2 show" method="POST">
           <div class="form-group" >
           <label>Name</label>
-          <input type="text" name="id" class="form-control">
+          <input type="text" name="name" class="form-control">
           </div>
           <div class="form-group">
           <label>Comment</label>
           <textarea type="text" rows = "3" name="comment" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+          <button class="btn btn-primary" type="submit">Save</button>
           </div>
         </form>
 
@@ -77,18 +83,17 @@ $comments = getComments($_GET['id']);
 
     function myF() {
     let id =  <?=$_GET['id'];?>;
-
+    $( ".tbl" ).toggleClass( "show" );
         $.ajax({
           type:"GET",
           url:"comment.php",
           contentType:"application/json",
           dataType: "json",
           data: "id=" + id,
-
           success: function(data){
 
           console.log(data);
-          $(".comments").empty();
+          $(".tbl").empty();
 
 
           let table = $("<table class = 'commentTable'>");
@@ -102,7 +107,7 @@ $comments = getComments($_GET['id']);
             row.append(cell);
             table.append(row);
           }
-          $(".comments").append(table);
+          $(".tbl").append(table);
 
           },
           error: function(response){
