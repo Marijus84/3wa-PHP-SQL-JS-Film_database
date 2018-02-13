@@ -24,6 +24,7 @@ $count = count(getAll());
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <div class="container">
     <section>
         <h1><?= $film['title'];?></h1>
@@ -70,6 +71,7 @@ $count = count(getAll());
 
       <a href="index.php"><button type="button" class="bot btn btn-info">Return</button></a>
       </p>
+      <a href="Login/logout.php"><button type="button" class="bot btn btn-info">Logout</button></a>
     </section>
     </div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

@@ -37,7 +37,9 @@
     <input type="text" name="trailer"  class="form-control" value = "<?= $film['trailer'];?>">
     </div>
     <div style="width: 100%; text-align: center;">
-      <button class="btn btn-primary" type="submit"><?= $buttonId ?></button>
+    <button class="btn btn-primary" type="submit"><?= $buttonId ?></button>
     </div>
+    <a href="index.php"><button type="button" class="bot btn btn-info">Return</button></a>
+    <p><a href="Login/logout.php"><button type="button" class="bot btn btn-info">Logout</button></a>
 
 </div>

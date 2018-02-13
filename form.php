@@ -13,10 +13,11 @@
 
 
 <body>
+
   <div class="container">
     <section>
         <h1>------</h1>
-        <form action="<?= $buttonId.'.php'?>" method="POST">
+        <form action="<?= $buttonId.'.php'?>" method="POST" >
             <?php
             include 'template.php';
              ?>
